@@ -6,6 +6,7 @@ import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { ImageWithLoading } from "./ui/image-with-loading";
 import { useLanguage } from "../i18n/LanguageContext";
 import { getAllProducts } from "../data/catalogStore";
 
@@ -107,7 +108,7 @@ export function Marketplace() {
               <Link key={product.id} to={`/product/${product.id}`}>
                 <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-lg">
                   <div className="relative aspect-square overflow-hidden bg-slate-100">
-                    <img
+                    <ImageWithLoading
                       src={product.image}
                       alt={product.name}
                       className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
@@ -128,7 +129,7 @@ export function Marketplace() {
 
                     {artisan && (
                       <div className="mb-3 flex items-center gap-2 border-b border-slate-100 pb-3">
-                        <img src={artisan.avatar} alt={artisan.name} className="h-6 w-6 rounded-full object-cover" />
+                        <ImageWithLoading src={artisan.avatar} alt={artisan.name} className="h-6 w-6 rounded-full object-cover" />
                         <div className="flex min-w-0 flex-1 items-center gap-1">
                           <span className="truncate text-xs text-slate-600">{t("by")} {artisan.name}</span>
                           {artisan.verified && <BadgeCheck className="h-3 w-3 flex-shrink-0 text-green-600" />}

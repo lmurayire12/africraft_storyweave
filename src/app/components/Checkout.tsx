@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { ImageWithLoading } from "./ui/image-with-loading";
 import { getAllProducts } from "../data/catalogStore";
 
 export function Checkout() {
@@ -42,7 +43,7 @@ export function Checkout() {
 
       <Card className="h-fit p-6">
         <h2 className="mb-4 font-bold text-slate-900">Order Summary</h2>
-        <img src={product.image} alt={product.name} className="mb-4 aspect-square w-full rounded-md object-cover" />
+        <ImageWithLoading src={product.image} alt={product.name} className="mb-4 aspect-square w-full rounded-md object-cover" />
         <div className="mb-2 text-sm text-slate-600">{product.name}</div>
         <div className="text-xl font-bold text-slate-900">${product.price}</div>
       </Card>

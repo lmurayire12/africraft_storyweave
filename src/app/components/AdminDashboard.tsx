@@ -4,6 +4,7 @@ import { orders, artisans, products, Product } from "../data/mockData";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { ImageWithLoading } from "./ui/image-with-loading";
 import { addCustomProduct, deleteCustomProduct, getOnlyCustomProducts } from "../data/catalogStore";
 import { getCurrentAdmin, signOutAdmin } from "../auth/adminAuth";
 
@@ -182,7 +183,7 @@ export function AdminDashboard() {
               required={!imageDataUrl}
             />
             {imageDataUrl && (
-              <img src={imageDataUrl} alt="Preview" className="mt-3 h-28 w-28 rounded-md border border-slate-200 object-cover" />
+              <ImageWithLoading src={imageDataUrl} alt="Preview" className="mt-3 h-28 w-28 rounded-md border border-slate-200 object-cover" />
             )}
           </div>
 
@@ -240,7 +241,7 @@ export function AdminDashboard() {
             <tbody>
               {customProducts.map((product) => (
                 <tr key={product.id} className="border-b border-slate-100">
-                  <td className="py-2"><img src={product.image} alt={product.name} className="h-10 w-10 rounded object-cover" /></td>
+                  <td className="py-2"><ImageWithLoading src={product.image} alt={product.name} className="h-10 w-10 rounded object-cover" /></td>
                   <td className="py-2">{product.name}</td>
                   <td className="py-2 capitalize">{product.category}</td>
                   <td className="py-2">${product.price}</td>

@@ -3,6 +3,7 @@ import { ArrowLeft, BadgeCheck, MapPin, Star } from "lucide-react";
 import { artisans } from "../data/mockData";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { ImageWithLoading } from "./ui/image-with-loading";
 import { getAllProducts } from "../data/catalogStore";
 
 export function ArtisanProfile() {
@@ -24,7 +25,7 @@ export function ArtisanProfile() {
 
       <Card className="mb-8 p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <img src={artisan.avatar} alt={artisan.name} className="h-20 w-20 rounded-full object-cover" />
+          <ImageWithLoading src={artisan.avatar} alt={artisan.name} className="h-20 w-20 rounded-full object-cover" />
           <div className="flex-1">
             <div className="mb-1 flex items-center gap-2">
               <h1 className="text-2xl font-bold text-slate-900">{artisan.name}</h1>
@@ -49,7 +50,7 @@ export function ArtisanProfile() {
         {artisanProducts.map((product) => (
           <Link key={product.id} to={`/product/${product.id}`}>
             <Card className="overflow-hidden transition-shadow hover:shadow-md">
-              <img src={product.image} alt={product.name} className="aspect-square w-full object-cover" />
+              <ImageWithLoading src={product.image} alt={product.name} className="aspect-square w-full object-cover" />
               <div className="p-4">
                 <h3 className="font-semibold text-slate-900">{product.name}</h3>
                 <p className="mt-1 text-sm text-slate-600">${product.price}</p>

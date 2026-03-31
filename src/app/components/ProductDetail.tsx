@@ -5,6 +5,7 @@ import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import { ImageWithLoading } from "./ui/image-with-loading";
 import { useLanguage } from "../i18n/LanguageContext";
 import { getAllProducts } from "../data/catalogStore";
 
@@ -45,7 +46,7 @@ export function ProductDetail() {
         <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="overflow-hidden rounded-lg bg-white shadow-sm">
             <div className="aspect-square">
-              <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
+              <ImageWithLoading src={product.image} alt={product.name} className="h-full w-full object-cover" />
             </div>
           </div>
 
@@ -57,7 +58,7 @@ export function ProductDetail() {
             <Link to={`/artisan/${artisan.id}`}>
               <Card className="mb-6 cursor-pointer p-4 transition-shadow hover:shadow-md">
                 <div className="flex items-start gap-3">
-                  <img src={artisan.avatar} alt={artisan.name} className="h-12 w-12 rounded-full object-cover" />
+                  <ImageWithLoading src={artisan.avatar} alt={artisan.name} className="h-12 w-12 rounded-full object-cover" />
                   <div className="flex-1">
                     <div className="mb-1 flex items-center gap-2">
                       <span className="font-semibold text-slate-900">{artisan.name}</span>
